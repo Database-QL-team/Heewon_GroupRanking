@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class ConnectMySQL {
 	
-	static String address = "jdbc:mysql://localhost:3306/db2276274?useUnicode=true&useSSL=false&serverTimezone=UTC";
+	static String address = "jdbc:mysql://localhost/db2276274";
 	static String userid = "root";
 	static String passwd = "cs10120";
 	
@@ -14,7 +14,7 @@ public class ConnectMySQL {
 			)
 		{
 			stmt.executeUpdate("create table GroupRanking("
-					+ "groupname varchar(40),"
+					+ "groupname varchar(60),"
 					+ "solvednum int,"
 					+ "ranking int primary key)");
 		} 
@@ -34,6 +34,7 @@ public class ConnectMySQL {
 			stmt.executeUpdate("delete from GroupRanking");
 			int ranking = 1;
 			for(group g : groups) {
+				//System.out.println(g.groupname);
 				pstmt.setString(1,g.groupname);
 				pstmt.setInt(2,g.solvednum);
 				pstmt.setInt(3,ranking++);
