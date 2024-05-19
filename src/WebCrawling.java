@@ -7,10 +7,10 @@ import org.jsoup.nodes.Element;
 
 public class WebCrawling 
 {
-
+	public static ArrayList<group> groups = new ArrayList<>();
+	
 	public static void RefreshGroups() 
 	{
-		ArrayList<group> groups = new ArrayList<>();
 		String URL = "https://www.acmicpc.net/ranklist/school/";
 		
 		try {
@@ -31,7 +31,7 @@ public class WebCrawling
 		}
 		
 		// Collections.sort(groups);
-		ConnectMySQL.UpdateGroupRanking(groups);
+		//ConnectMySQL.UpdateGroupRanking(groups);
 		
 	}
 
